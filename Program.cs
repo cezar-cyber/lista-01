@@ -1,14 +1,16 @@
-﻿Console.WriteLine("temperatura atual em graus celsius: "); 
-float temperatura = float.Parse(Console.ReadLine()!);
-if (temperatura < 18) 
-{ 
-    Console.WriteLine("ambiente frio"); 
-} 
-else if (temperatura >= 18 && temperatura <= 26) 
-{ 
-    Console.WriteLine("ambiente confortável."); 
-} 
-else 
-{ 
-    Console.WriteLine("ambiente quente"); 
+﻿Console.WriteLine("Informe o valor total da compra: ");
+int valorTotal = int.Parse(Console.ReadLine()!);
+
+int desconto = 0;
+
+if (valorTotal >= 200) {
+    desconto = (int)(valorTotal * 0.10);
+}else {
+    desconto = 0;
 }
+
+double valorFinal = valorTotal - desconto;
+
+Console.WriteLine($"Valor original: R$ {valorTotal}");
+Console.WriteLine($"Desconto aplicado: R$ {desconto}");
+Console.WriteLine($"Valor final: R$ {valorFinal}");
