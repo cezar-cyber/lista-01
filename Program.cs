@@ -1,15 +1,28 @@
-﻿Console.WriteLine("Informe a quantidade de clientes atendidos: ");
-int clientes = int.Parse(Console.ReadLine()!);
+﻿Console.WriteLine("Informe o saldo inicial: ");
+int saldo = int.Parse(Console.ReadLine()!);
 
-int totalTempo = 0;
+Console.WriteLine("Escolha a operação: ");
+int operacao = int.Parse(Console.ReadLine()!);
 
-for (int i = 0; i < clientes; i++) {
-    Console.WriteLine("Informe o tempo do atendimento: ");
-    int tempo = int.Parse(Console.ReadLine()!);
-    totalTempo += tempo;
+while (operacao != 3) {
+    if (operacao == 1) {
+        Console.WriteLine("Informe o valor da movimentação: ");
+        int valor = int.Parse(Console.ReadLine()!);
+        saldo += valor;
+        Console.WriteLine($"Entrada registrada. Saldo atual: R$ {saldo}");
+    } else if (operacao == 2) {
+        Console.WriteLine("Informe o valor da movimentação: ");
+        int valor = int.Parse(Console.ReadLine()!);
+        if (valor > saldo) {
+            Console.WriteLine("Saldo insuficiente.");
+        } else {
+            saldo -= valor;
+            Console.WriteLine($"Saída registrada. Saldo atual: R$ {saldo}");
+        }
+    }
+
+    Console.WriteLine("Escolha a operação: ");
+    operacao = int.Parse(Console.ReadLine()!);
 }
 
-int mediaTempo = (int)(totalTempo / clientes);
-
-Console.WriteLine($"Tempo total de atendimento: {totalTempo} minutos");
-Console.WriteLine($"Tempo médio por cliente: {mediaTempo} minutos");
+Console.WriteLine($"Saldo final: R$ {saldo}");
